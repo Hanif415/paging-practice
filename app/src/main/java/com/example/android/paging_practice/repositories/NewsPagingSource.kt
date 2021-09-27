@@ -9,9 +9,15 @@ import java.io.IOException
 
 private const val GITHUB_STARTING_PAGE_INDEX = 1
 
+/**
+ * get and load the data
+ */
 class NewsPagingSource(private val service: NewsApiService, private val query: String) :
     PagingSource<Int, ArticlesItem>() {
 
+    /**
+     * return the key to load function
+     */
     override fun getRefreshKey(state: PagingState<Int, ArticlesItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -19,6 +25,9 @@ class NewsPagingSource(private val service: NewsApiService, private val query: S
         }
     }
 
+    /**
+     * Load the data from internet and add to LoadResult.Page
+     */
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticlesItem> {
 
         val position = params.key ?: GITHUB_STARTING_PAGE_INDEX

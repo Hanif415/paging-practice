@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.android.paging_practice.R
 import com.example.android.paging_practice.api.ArticlesItem
 
+/**
+ * Paging data adapter, is used the same as recycler view adapter
+ */
 class GithubAdapter(differCallback: DiffUtil.ItemCallback<ArticlesItem>) :
     PagingDataAdapter<ArticlesItem, GithubViewHolder>(differCallback) {
     override fun onBindViewHolder(holder: GithubViewHolder, position: Int) {

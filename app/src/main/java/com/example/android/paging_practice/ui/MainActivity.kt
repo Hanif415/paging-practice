@@ -24,11 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // adapter instance
         val pagingAdapter = GithubAdapter(NewsComparator)
+
+        // recycler view instance
         val recyclerView = findViewById<RecyclerView>(R.id.list)
 
+        // add the adapter
         recyclerView.adapter = pagingAdapter
 
+        // launch get the data with coroutines
         lifecycleScope.launch {
             viewModel.searchNews("Android").collectLatest { news ->
                 pagingAdapter.submitData(news)

@@ -4,6 +4,9 @@ import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * class to get the response
+ */
 @Parcelize
 data class News(
 
@@ -17,6 +20,9 @@ data class News(
     val status: String? = null
 ) : Parcelable
 
+/**
+ * class to save the item
+ */
 @Parcelize
 data class ArticlesItem(
 
