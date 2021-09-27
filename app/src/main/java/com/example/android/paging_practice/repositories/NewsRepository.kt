@@ -13,9 +13,10 @@ class NewsRepository(private val service: NewsApiService) {
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,
                 enablePlaceholders = false
-            ),
-            pagingSourceFactory = { NewsPagingSource(service, query) }
-        ).flow
+            )
+        ) {
+            NewsPagingSource(service, query)
+        }.flow
     }
 
     companion object {

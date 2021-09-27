@@ -10,8 +10,8 @@ import retrofit2.http.Query
 interface NewsApiService {
 
     @GET("everything")
-    fun getNews(
-        @Query("q") query: String?,
+    suspend fun getNews(
+        @Query("q") query: String = "android",
         @Query("from") country: String = "2021-09-24",
         @Query("sortBy") sortBy: String = "popularity",
         @Query("apiKey") apiKey: String = API_KEY

@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 
 class SearchNewsViewModel(private val repository: NewsRepository) : ViewModel() {
 
-    private fun searchNews(query: String): Flow<PagingData<ArticlesItem>> =
+    fun searchNews(query: String): Flow<PagingData<ArticlesItem>> =
         repository.getSearchResultStream(query)
             .cachedIn(viewModelScope)
 }
